@@ -1,24 +1,23 @@
 body {
     margin:0px;
     padding:0px;
-    font-family: Arial, "MS Trebuchet", sans-serif;
+    font-family: "Lucida Grande", "MS Trebuchet", sans-serif;
 }
 
    #container {
-       width: 314px;
+       width: 320px;
        height:474px;
-       background:#333333;
-       color:#EEE;
+       color:#333;
        overflow:hidden;
-       -webkit-border-radius:5px;
-       border:3px solid #000;
        position:relative;
    }
 
        #scroller {
+           border:1px solid #333;
            overflow:auto;
            height:411px;
-           background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#666666), to(#333333), color-stop(.6,#333333));
+/*           background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#666666), to(#333333), color-stop(.6,#333333));*/
+           background:#FFF;
        }
 
            #scroller ul#list {
@@ -30,25 +29,28 @@ body {
                    padding:0px;
                    margin:0px;
                    list-style:none;
-                   background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#36364D), to(#262133));
+/*                   background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#36364D), to(#262133));*/
                    padding:5px;
                    -webkit-border-radius:5px;
-                   margin:10px;
+                   margin:0px;
                    overflow:hidden;
                    font-size: 10pt;
                }
+               #scroller ul#list li:nth-child(odd) {
+                 background-color: #ECF3FE;
+               }
 
        #postbox {
-           height:40px;
+           height:30px;
            width: 320px;
            position:absolute;
            bottom:0px;
            left:0px;
            right:0px;
-           border:none;
-           -webkit-border-bottom-right-radius:4px;
+/*           border-top:1px solid #999;*/
+/*           -webkit-border-bottom-right-radius:4px;
            -webkit-border-bottom-left-radius: 4px;
-       }
+*/       }
 
 
    h1, h2, h3 {
