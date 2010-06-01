@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>Example 2</title>
+	<link rel="stylesheet" href="css/jquery.lightbox-0.5.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	
+	<script src="libraries/AIRAliases.js" type="text/javascript" charset="utf-8"></script>
+	<script src="libraries/AIRIntrospector.js" type="text/javascript" charset="utf-8"></script>
+	<script src="libraries/json2.js" type="text/javascript" charset="utf-8"></script>
+	<script src="libraries/multipart.js" type="text/javascript" charset="utf-8"></script>
+
+	
+	<script src="libraries/jquery-1.4.2.js" type="text/javascript" charset="utf-8"></script>
+	<script src="libraries/jquery.lightbox-0.5.js" type="text/javascript" charset="utf-8"></script>	
+
+	<script type="text/javascript" charset="utf-8">
+	
+		var dump = air.Introspector.Console.info;
+		
+		
+		var proc = {};
+		proc.localFile = new air.File();
+		proc.remoteURL = '';
+		proc.newLocalFile = new air.File();
+		
+		
+		
+		$(document).ready( function() {
+			
+			$('#localimgstuff').hide();
+			$('#remoteimgstuff').hide();
+			
+			$('#choose').click( function() {
+				proc.localFile = new air.File(); //use file.browseForOpen() on ur wish
+				var imgFilter = new air.FileFilter("Image", "*.png;*.jpg;*jpeg;*.gif");
+				proc.localFile.browseForOpen('Choose image file', [imgFilter]);
+				proc.localFile.addEventListener(air.Event.SELECT, fileSelected);
+				
+				function fileSelected(event) {
+					$('#localimg').attr('src', event.target.url);
+					$('#localimglink').attr('href', event.target.url);
+					$('#localimgstuff').fadeIn('slow');
+					$('#localimglink').lightBox();
+				}	
+			});
+			
+			$('#upload').click( function() {
+				
+				$('#remoteimgstuff').fadeOut('slow');
+				
+				var request = new air.URLRequest('http://revolverocelot.local/~coj/eeci2010/index.php/imageapi/process/'+$('#action').val());
+				var loader = new air.URLLoader();
+				var stream = new air.FileStream();
+				var buf = new air.ByteArray();
+				stream.open(proc.localFile, air.FileMode.READ);
+				stream.readBytes(buf);
+				
+				// http://rollingcode.org/blog/2007/11/file-upload-with-urlrequest-in-air.html
+				PrepareMultipartRequest(request, buf, 'imagefile', proc.localFile.nativePath);
+				
+				loader.load(request);
+				loader.addEventListener(air.Event.COMPLETE, uploadComplete);
+				
+				function uploadComplete(event) {
+					dump(event.target.data);
+					$('#debug').text(event.target.data);
+					var data = JSON.parse(event.target.data);
+					alert(data.new_img_url);
+					$('#remoteimg').attr('src', data.new_img_url);
+					$('#remoteimglink').attr('href', data.new_img_url);
+					$('#remoteimgstuff').fadeIn('slow');
+					$('#remoteimglink').lightBox();
+				}
+				
+			});
+		});
+	</script>
+	
+</head>
+
+<body>
+	<h1>PHP iz gud at ImageMagick</h1>
+
+	<form>
+		<p><input type="button" name="choose" value="Pick a file" id="choose"> </p>
+		
+		<div id="localimgstuff">
+    		<a href="" id="localimglink"><img src="" title="Local Image" alt="local" id="localimg" style="max-width:150px; max-height:150px; border:1px solid #666; display:block" /></a>
+    		<label for="action">Effect:</label> <select name="action" id="action">
+    			<option value="sepia">sepia</option>
+    			<option value="emboss">emboss</option>
+    			<option value="blur">blur</option>
+    		</select><br />
+    		<input type="button" name="upload" value="Upload" id="upload" />
+		</div>
+	</form>
+	
+	
+	<div id="remoteimgstuff">
+		<strong>New Image</strong>
+		<a href="" id="remoteimglink"><img src="" title="Remote Image" alt="remote" id="remoteimg" style="max-width:150px; max-height:150px; border:1px solid #666; display:block" /></a>
+	</div>
+	
+</body>
+</html>

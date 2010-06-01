@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, "MS Trebuchet", sans-serif;
+    margin: 0;
+    padding:0;
+    background-color:#333333;
+    color:#CCCCCC;
+    font-size:12pt;
+}
+
+
+h1 {
+    margin:0px;
+    padding:9px;
+    background: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.32, rgb(33,33,33)),
+        color-stop(0.66, rgb(64,64,64))
+    );
+
+}
+
+
+label {
+    font-weight: bold;
+}
+
+
+textarea {
+
+}
+
+
+select, input[type="button"], button.awesome, .button.awesome {
+    background: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.32, rgb(97,97,97)),
+        color-stop(0.66, rgb(158,158,158)),
+        color-stop(0.83, rgb(168,168,168))
+    );
+	display: inline-block;
+	padding: 5px 10px 6px;
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	line-height: 1;
+	-webkit-border-radius: 5px;
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+	border-width:0px;
+/*  border-bottom: 1px solid rgba(0,0,0,0.25);*/
+	position: relative;
+	cursor: pointer;
+}
+
+
+
+#localimgstuff, #remoteimgstuff {
+    -webkit-border-radius: 5px;
+	background:   #111;
+	width:        200px;
+	min-height:   220px;
+	display:      inline-block;
+	padding:      10px;
+	text-align:   center;
+	float:        left;
+	margin-right: 10px;
+}
+
+#localimgstuff img, #remoteimgstuff img {
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#localimgstuff {
+    
+}
+
+#remoteimgstuff {
+    
+}

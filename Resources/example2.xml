@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://ns.adobe.com/air/application/2.0">
+	<id>codeigniter-example2</id>
+	<filename>codeigniter-Example2</filename>
+	<version>1.0</version>
+	<initialWindow>
+		<content>example2.html</content>
+		<visible>true</visible>
+        <resizable></resizable>
+        <width>900</width>
+        <height>600</height>
+        <x>10</x>
+        <y>10</y>
+	</initialWindow>
+</application>

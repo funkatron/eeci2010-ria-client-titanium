@@ -1,0 +1,64 @@
+body {
+    margin:0px;
+    padding:0px;
+    font-family: Arial, "MS Trebuchet", sans-serif;
+}
+
+   #container {
+       width: 314px;
+       height:474px;
+       background:#333333;
+       color:#EEE;
+       overflow:hidden;
+       -webkit-border-radius:5px;
+       border:3px solid #000;
+       position:relative;
+   }
+
+       #scroller {
+           overflow:auto;
+           height:411px;
+           background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#666666), to(#333333), color-stop(.6,#333333));
+       }
+
+           #scroller ul#list {
+               padding:0px;
+               margin:0px;
+               list-style:none;
+           }
+               #scroller ul#list li {
+                   padding:0px;
+                   margin:0px;
+                   list-style:none;
+                   background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#36364D), to(#262133));
+                   padding:5px;
+                   -webkit-border-radius:5px;
+                   margin:10px;
+                   overflow:hidden;
+                   font-size: 10pt;
+               }
+
+       #postbox {
+           height:40px;
+           width: 320px;
+           position:absolute;
+           bottom:0px;
+           left:0px;
+           right:0px;
+           border:none;
+           -webkit-border-bottom-right-radius:4px;
+           -webkit-border-bottom-left-radius: 4px;
+       }
+
+
+   h1, h2, h3 {
+       margin:0px;
+   }
+
+   h1 {
+       height:15px;
+       font-size:12px;
+       padding:2px;
+       background:#000;
+   }
+
