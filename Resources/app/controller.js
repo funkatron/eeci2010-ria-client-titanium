@@ -61,26 +61,26 @@ app.controller.setupWindowDrag = function() {
     // $(document).bind('mouseup', onWindowDrag);
     // $(document).bind('mouseout', onWindowDrag);
     // // $(document).css('-webkit-user-select', 'none');
-    
-    var dragging = false;
-    
-    var titlebar = $('h1').get(0);
-    
-    titlebar.onmousemove = function(event) {
-        if (!dragging)
-                return;
-
-        Titanium.UI.currentWindow.setX(Titanium.UI.currentWindow.getX() + event.clientX - xstart);
-        Titanium.UI.currentWindow.setY(Titanium.UI.currentWindow.getY() + event.clientY - ystart);
-    };
-
-    titlebar.onmousedown = function(event) {
-            dragging = true;
-            xstart = event.clientX;
-            ystart = event.clientY;
-    };
-
-    titlebar.onmouseup = function(event) {
-            dragging = false;
-    };
+    // 
+    // var dragging = false;
+    // 
+    // var titlebar = $('h1').get(0);
+    // 
+    // titlebar.onmousemove = function(event) {
+    //     if (!dragging)
+    //             return;
+    // 
+    //     Titanium.UI.currentWindow.setX(Titanium.UI.currentWindow.getX() + event.clientX - xstart);
+    //     Titanium.UI.currentWindow.setY(Titanium.UI.currentWindow.getY() + event.clientY - ystart);
+    // };
+    // 
+    // titlebar.onmousedown = function(event) {
+    //         dragging = true;
+    //         xstart = event.clientX;
+    //         ystart = event.clientY;
+    // };
+    // 
+    // titlebar.onmouseup = function(event) {
+    //         dragging = false;
+    // };
 };
